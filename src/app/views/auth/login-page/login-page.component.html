@@ -1,8 +1,27 @@
-<div id="login" fxLayout="row">
-    <div id="login-form-wrapper" fxLayout="row" fxLayoutAlign="center">
-        <div id="login-form">
-            <p>Hello</p>
+<section id="login" fxLayout="row">
+    <div id="login-form-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <div id="login-form" fxLayout="row">
+            <div id="login-form-img-wrapper" fxLayout="column">
+                <div fxLayoutAlign="center enter">
+                    <img src="../../assets/imgs/auth/login.png" id="login-form-img" />  
+                </div>
+            </div>
+            <div id="login-form-input-wrapper" fxLayout="column">
+                <div class="form-field">
+                    <div class="title">LOGIN TO YOUR ACCOUNT</div>
+                    <mat-form-field appearance="outline"> 
+                        <mat-label>Login</mat-label>
+                         <input matInput maxlength="256" placeholder="Enter UserName" [formControl]="email" required>
+                         <mat-error *ngif="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>            
         </div>
     </div>
-</div>
+</section>
 
+<mat-form-field >
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>

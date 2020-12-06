@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AuthComponent } from './auth.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -22,6 +24,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FlexLayoutModule,
+    MatInputModule,
+    MatFormFieldModule,
     RouterModule.forChild(routes)
   ],
   exports: [
