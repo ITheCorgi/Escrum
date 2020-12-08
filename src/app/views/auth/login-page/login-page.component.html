@@ -9,19 +9,29 @@
             <div id="login-form-input-wrapper" fxLayout="column">
                 <div class="form-field">
                     <div class="title">LOGIN TO YOUR ACCOUNT</div>
-                    <mat-form-field appearance="outline"> 
-                        <mat-label>Login</mat-label>
-                         <input matInput maxlength="256" placeholder="Enter UserName" [formControl]="email" required>
-                         <mat-error *ngif="email.invalid">{{getErrorMessage()}}</mat-error>
-                    </mat-form-field>
+                    <form [formGroup]="loginForm">
+                        <mat-form-field appearance="outline"> 
+                            <mat-label>Email</mat-label>
+                             <input matInput name="email" formControlName="email"/>
+                             <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                             <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                                Email is required
+                            </mat-error>
+                            <mat-error
+                                *ngIf="!loginForm.get('email').hasError('required') &&
+                                        loginForm.get('email').hasError('email')">
+                                Please enter a valid email address
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline"> 
+                            <mat-label>Password</mat-label>
+                             <input matInput name="password" formControlName="password"/>
+                             <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                        </mat-form-field>
+                    </form>
                 </div>
             </div>            
         </div>
     </div>
 </section>
-
-<mat-form-field >
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>

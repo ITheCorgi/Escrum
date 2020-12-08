@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthComponent } from './auth.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -26,6 +28,11 @@ const routes: Routes = [
     FlexLayoutModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
+    FormBuilder,
+    FormControl,
+    FormGroup,
+    Validators,
     RouterModule.forChild(routes)
   ],
   exports: [
