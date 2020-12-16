@@ -37,16 +37,82 @@
 
                 #login-form-input-wrapper
                 {
-                    position : relative;
-                    padding: 32px;
-                    
+                    flex: auto;
+
                     .form-field {
-                        position: absolute;
+                        position: relative;
+                        text-align: center;
                         
+
                         .title {
-                            text-align: center;
-                            font-size: 18px;
+                            font-size: 20px;
                             margin: 20px 0 32px 0;
+                        }
+
+                        .form {
+                            min-width: 450px;
+                            max-width: 450px;
+                            width: 100%;
+                            text-align: left;
+                            padding: 20px;
+
+                            mat-form-field {
+                                width: 100%;
+                            }
+                            
+                            mat-input {
+                                width: 100%;
+                            }
+
+                            mat-checkbox {
+                                margin: 0;
+                            }
+
+                            .remember-password {
+                                margin: 15px 0 0 0;
+                                text-align: right;
+                                
+                                .forgot-password {
+                                    font-weight: 600;
+                                    margin-bottom: 16px;
+                                    
+                                }
+                            }
+                        }
+
+                        .separator {
+                            font-size: 14px;
+                            font-weight: 600;
+                            position: relative;
+                            overflow: hidden;
+                            margin: 20px auto;
+                            width: 250px;
+
+                            .text {
+                                display: inline-flex;
+                                position: relative;
+                                padding: 0 8px;
+                                z-index: 1000;
+
+                                &:before,
+                                &:after {
+                                    content: '';
+                                    display: block;
+                                    width: 150px;
+                                    position: absolute;
+                                    border-top: 1px solid;
+                                    border-color: lightslategrey;
+                                    top: 10px;
+                                }
+
+                                &:before {
+                                    right: 100%;
+                                }
+
+                                &:after {
+                                    left: 100%;
+                                }
+                            }
                         }
 
                     }

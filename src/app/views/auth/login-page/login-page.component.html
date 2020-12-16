@@ -6,24 +6,48 @@
                     <img src="../../assets/imgs/auth/login.png" id="login-form-img" />  
                 </div>
             </div>
-            <div id="login-form-input-wrapper" fxLayout="column">
+            <div id="login-form-input-wrapper" fxLayout="column" fxLayoutAlign="space-around center">
                 <div class="form-field">
                     <div class="title">LOGIN TO YOUR ACCOUNT</div>
-                    <div [formGroup]="loginForm" novalidate>
+                    <form [formGroup]="loginForm" novalidate>
                         <mat-form-field appearance="outline"> 
                             <mat-label>Email</mat-label>
-                             <input matInput name="email" formControlName="email" required/>
-                             <mat-icon matSuffix class="secondary-text">mail</mat-icon>
-
+                            <input matInput type="email" formControlName="email"/>
+                            <mat-icon matSuffix class="secondary-text">email</mat-icon>
+                            <mat-error *ngIf="email?.errors?.required">
+                                        Email is required
+                            </mat-error>
+                            <mat-error *ngIf="!email?.errors?.required && email?.errors?.email">
+                                        Please enter a valid email address
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline"> 
                             <mat-label>Password</mat-label>
-                             <input matInput name="password" formControlName="password" required/>
-                             <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required/>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="password?.errors?.required">Password is required</mat-error>
                         </mat-form-field>
+                    </form>
+                    <div class="remember-password" fxLayout="row">
+                        <a class="forgot-password" [routerLink]="'/views/auth/forgot-password'">
+                            Forgot Password?
+                        </a>
                     </div>
-                </div>
+
+                    <div class="separator">
+                        <span class="text">OR LOGIN WITH</span>
+                    </div>
+                    
+                    <div>
+                        <button mat-icon-button>
+                            <fa-icon [icon]="['fab', 'faGithub']"></fa-icon>
+                        </button>
+                    </div>
+
+                  </div>
             </div>            
         </div>
     </div>
