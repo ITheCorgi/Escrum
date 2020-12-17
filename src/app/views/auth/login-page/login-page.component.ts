@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faMicrosoft, faGithub, faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faMicrosoft, faGithub, faGoogle, faFacebook, faVk } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-login-page',
@@ -10,11 +10,13 @@ import { faMicrosoft, faGithub, faGoogle, faFacebook } from '@fortawesome/free-b
 export class LoginPageComponent {
   
   loginForm: FormGroup;
+  hide : boolean;
+  
   faMicrosoft = faMicrosoft;
   faGithub = faGithub;
   faGoogle = faGoogle;
   faFacebook = faFacebook;
-  hide = true;
+  faVk = faVk;
 
 /**
 * Constructor
@@ -25,6 +27,8 @@ export class LoginPageComponent {
       email   : [' ', [Validators.required, Validators.email]],
       password: [' ', Validators.required]
     });
+    
+    this.hide = true;
   }
 
   get email() { return this.loginForm.get('email'); }

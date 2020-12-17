@@ -1,19 +1,18 @@
     #login {
         position: relative;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-color: #f6f6f8;
 
         #login-form-wrapper {
             flex: auto;
-            
+
             #login-form {
                 position: absolute;
-                flex: 1 0 auto;
-                width: 750px;
+                width: 700px;
                 height: 450px;
                 background-color: #f1f1ef;
-                border-radius: 10px;
+                border-radius: 11px;
                 box-shadow:  0 2px 3px 0 rgba(218, 218, 253, 0.35), 0 0px 3px 0 rgba(206, 206, 238, 0.35);
                 filter: drop-shadow(0 0 13.5px rgba(0, 0, 0, 0.09));
 
@@ -23,101 +22,95 @@
                 //box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
                 //box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
                 
-                #login-form-img-wrapper {
+                #img-wrapper {
                     position: relative;
-                    width: 50%;
+                    width: 45%;
+                    height: 100%;
                     background-color: white;
-                    justify-content: center;
-
+                   
                     #login-form-img {
                         width: 300px;
                         height: 200px;
                     }
                 }
 
-                #login-form-input-wrapper
+                #input-wrapper
                 {
-                    flex: auto;
-
-                    .form-field {
-                        position: relative;
-                        text-align: center;
+                    position: relative;
+                    width: 55%;
+                    height: 100%;
+                    text-align: center;
+                    
+                    .title {
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin: 30px 0 32px 0;
                         
-
-                        .title {
-                            font-size: 20px;
-                            margin: 20px 0 32px 0;
-                        }
-
-                        .form {
-                            min-width: 450px;
-                            max-width: 450px;
-                            width: 100%;
-                            text-align: left;
-                            padding: 20px;
-
-                            mat-form-field {
-                                width: 100%;
-                            }
-                            
-                            mat-input {
-                                width: 100%;
-                            }
-
-                            mat-checkbox {
-                                margin: 0;
-                            }
-
-                            .remember-password {
-                                margin: 15px 0 0 0;
-                                text-align: right;
-                                
-                                .forgot-password {
-                                    font-weight: 600;
-                                    margin-bottom: 16px;
-                                    
-                                }
-                            }
-                        }
-
-                        .separator {
-                            font-size: 14px;
-                            font-weight: 600;
-                            position: relative;
-                            overflow: hidden;
-                            margin: 20px auto;
-                            width: 250px;
-
-                            .text {
-                                display: inline-flex;
-                                position: relative;
-                                padding: 0 8px;
-                                z-index: 1000;
-
-                                &:before,
-                                &:after {
-                                    content: '';
-                                    display: block;
-                                    width: 150px;
-                                    position: absolute;
-                                    border-top: 1px solid;
-                                    border-color: lightslategrey;
-                                    top: 10px;
-                                }
-
-                                &:before {
-                                    right: 100%;
-                                }
-
-                                &:after {
-                                    left: 100%;
-                                }
-                            }
-                        }
-
                     }
+
+                    form {
+                        min-width: 100px;
+                        max-width: 350px;
+                        width: 100%;
+                        text-align: left;
+                    
+                        mat-form-field {
+                            width: 100%;
+                        }
+                            
+                        mat-input {
+                            width: 100%;
+                        }
+
+                        .forgot-password {
+                            margin: 8px 0 16px 0;
+                            text-align: right;
+                            font-weight: 600;   
+                        }
+
+                        .submit-btn {
+                            min-width: 100px;
+                            max-width: 170px;
+                            width: 100%;
+                            margin: 16px auto;
+                            display: block;
+                        }
+                    }
+
+                    .separator {
+                        font-size: 12px;
+                        font-weight: 600;
+                        position: relative;
+                        overflow: hidden;
+                        width: 200px;
+
+                        .text {
+                            display: inline-flex;
+                            position: relative;
+                            padding: 0 8px;
+                            z-index: 1000;
+
+                            &:before,
+                            &:after {
+                                content: '';
+                                display: block;
+                                width: 200px;
+                                position: absolute;
+                                border-top: 1px solid;
+                                border-color: lightslategrey;
+                                top: 10px;
+                            }
+
+                            &:before {
+                                right: 100%;
+                            }
+
+                            &:after {
+                                left: 100%;
+                            }
+                        }
+                    }                    
                 }
             }
-
         }
     }
