@@ -24,8 +24,8 @@ export class LoginPageComponent {
 */
   constructor(private _formBuilder: FormBuilder) {
     this.loginForm = this._formBuilder.group({
-      email   : [' ', [Validators.required, Validators.email]],
-      password: [' ', Validators.required]
+      email   : ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
     
     this.hide = true;

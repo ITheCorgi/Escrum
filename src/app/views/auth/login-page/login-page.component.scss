@@ -44,7 +44,7 @@
                     .title {
                         font-size: 20px;
                         font-weight: 600;
-                        margin: 30px 0 32px 0;
+                        margin: 35px 0 32px 0;
                         
                     }
 
@@ -78,11 +78,12 @@
                     }
 
                     .separator {
-                        font-size: 12px;
+                        font-size: 11px;
                         font-weight: 600;
                         position: relative;
                         overflow: hidden;
                         width: 200px;
+                        color: grey;
 
                         .text {
                             display: inline-flex;
@@ -96,9 +97,8 @@
                                 display: block;
                                 width: 200px;
                                 position: absolute;
-                                border-top: 1px solid;
-                                border-color: lightslategrey;
-                                top: 10px;
+                                border-top: 1.5px solid;
+                                top: 8px;
                             }
 
                             &:before {
