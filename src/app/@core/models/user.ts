@@ -1,4 +1,8 @@
 import { Role } from './role';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const API_URL = environment.apiUrl;
 
 interface IUser {
     id?: number;
