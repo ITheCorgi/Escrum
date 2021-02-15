@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
 
@@ -15,6 +13,15 @@ export class AuthGuard implements CanActivate {
         ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        
+        const user = this.authService.UserValue;
+        if(user) {
+            if(route.data.roles && route.data.roles.indexOf(user.role) === -1) {
+                this.router.navigate(['/']);
+                return false;
+            }
+            return true;
+        }
+        this.router.navigate(['login-page'], { queryParams: { returnURL: state.url }});
+        return false;
     };
 }

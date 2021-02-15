@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiUrl;
 
-interface IUser {
+export interface IUser {
     id?: number;
     email?: string;
     password?: string;
@@ -13,12 +13,16 @@ interface IUser {
     refreshtoken?: string;
 }
 
-export class User implements IUser {
-    constructor(public id?: number,
-                public email?: string,
-                public password?: string,
-                public username?: string,
-                public role?: Role,
-                public refreshtoken?: string) {
-    }
+export abstract class UserData {
+    /*
+    * Get User List
+    * @output users[]: Observable<IUser[]>
+    */
+    abstract getUsers(): Observable<IUser[]>;
+
+    /*
+    * Get User
+    * @output user: Observable<IUser>
+    */
+    abstract getUser(id: number): Observable<IUser>;
 }
