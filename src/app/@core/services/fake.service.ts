@@ -25,7 +25,7 @@ export class FakeService implements HttpInterceptor {
 
         function handleRoute() {
             switch (true) {
-                case url.endsWith('/users/auth') && method === 'POST':
+                case url.endsWith('/users/authentification') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
                     return register();
