@@ -10,18 +10,17 @@ import { Role } from '../../@core/models/role'
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
-  user!: IUser;
+  private user!: IUser;
 
   constructor(private authService: AuthService) { 
     this.authService.user$.subscribe(x => this.user = x);
   }
 
-  isSuperAdmin(): boolean {
+  public isSuperAdmin(): boolean {
     return this.user && this.user === Role.SuperAdmin;
   }
 
-  logout(): void {
+  public logout(): void {
     this.authService.logout();
   }
-
 }
