@@ -6,22 +6,22 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatInputModule } from '@angular/material/input'
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './views/auth/auth.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    MatInputModule
+    MatInputModule,
+    AuthModule
   ],
+  declarations: [ AppComponent ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { 
 

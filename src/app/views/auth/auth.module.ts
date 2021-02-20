@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
@@ -14,6 +14,9 @@ import { AuthComponent } from './auth.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RegisterComponent } from './register/register.component';
+import { JwtInterceptor } from '../../@core/interceptors/jwt.interceptor';
+
+import { FakeService } from '../../@core/services/fake.service';
 
 const routes: Routes = [
   { path: '',
@@ -28,7 +31,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AuthComponent, LoginPageComponent, ForgotPasswordComponent, RegisterComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -42,9 +44,10 @@ const routes: Routes = [
     FontAwesomeModule,
     RouterModule.forChild(routes)
   ],
-  exports: [
-    RouterModule,
-    AuthComponent
-  ]
+  declarations: [ AuthComponent, LoginPageComponent, ForgotPasswordComponent, RegisterComponent ],
+  providers: [ 
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    FakeService ],
+  exports: [ RouterModule ]
 })
 export class AuthModule { }

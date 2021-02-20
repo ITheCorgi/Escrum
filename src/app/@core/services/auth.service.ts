@@ -54,7 +54,7 @@ export class AuthService {
   * @output userSubject: BehaviorSubject<User>(null)
   */
   public logout(): void {
-    this.userSubject.next(this.user || null);
+    this.userSubject.next(this.user);
     this.localStorageService.removeItem('user$');
     this.router.navigate(['/login-page']);
   }
@@ -62,7 +62,7 @@ export class AuthService {
   /*Get uservalue
   * @output userSubject: BehaviorSubject<User>
   */
-  public get UserValue(): IUser {
+  public get userValue(): IUser {
     return this.userSubject.value;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faMicrosoft, faGithub, faGoogle, faFacebook, faVk } from '@fortawesome/free-brands-svg-icons';
 import { Router, ActivatedRoute } from '@angular/router'
 import { first } from 'rxjs/operators';
@@ -24,11 +24,6 @@ export class LoginPageComponent implements OnInit {
   faFacebook = faFacebook;
   faVk = faVk;
 
-  credentials = {
-    email: '',
-    password: ''
-  }
-
 /**
 * Constructor
 * @param private _formBuilder: FormBuilder,
@@ -39,9 +34,9 @@ export class LoginPageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
     ) {
-      if(this.authService.UserValue) {
+      /*if(this.authService.userValue) {
         this.router.navigate(['/']);
-      }
+      }*/
       
       this.hide = true;
       this.loading = false;
@@ -63,7 +58,7 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login(this.credentials)
+    this.authService.login(this.loginForm.value)
         .pipe(first())
         .subscribe({
             next: () => {

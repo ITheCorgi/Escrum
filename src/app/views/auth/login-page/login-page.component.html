@@ -10,7 +10,7 @@
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input matInput type="email" id="email" [(ngModel)]="credentials.email" formControlName="email"/>
+                        <input matInput type="email" id="email" [ngClass]="{ 'is-invalid': submitted }" formControlName="email"/>
                         <mat-icon matSuffix class="secondary-text">email</mat-icon>
                         <mat-error *ngIf="email?.errors?.required">
                             Email is required
@@ -22,7 +22,7 @@
 
                     <mat-form-field appearance="outline"> 
                         <mat-label>Password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'" id="password" [(ngModel)]="credentials.password" formControlName="password"/>
+                        <input matInput [type]="hide ? 'password' : 'text'" id="password" [ngClass]="{ 'is-invalid': submitted }" formControlName="password"/>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>

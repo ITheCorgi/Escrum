@@ -4,11 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AuthModule],
-  imports: [
-    CommonModule,
-    AuthModule
-  ],
-  exports: []
+  imports: [ CommonModule, AuthModule ],
+  declarations: [ AuthModule ],
 })
 export class ViewsModule { }
