@@ -11,7 +11,9 @@
                 position: absolute;
                 width: 700px;
                 height: 450px;
-                background-color: #f1f1ef;
+                background-color: #fafafa;
+                //background-color: white;
+
                 border-radius: 11px;
                 box-shadow:  0 2px 3px 0 rgba(218, 218, 253, 0.35), 0 0px 3px 0 rgba(206, 206, 238, 0.35);
                 filter: drop-shadow(0 0 13.5px rgba(0, 0, 0, 0.09));
@@ -24,20 +26,20 @@
                 
                 #img-wrapper {
                     position: relative;
-                    width: 45%;
+                    width: 55%;
                     height: 100%;
                     background-color: white;
                    
                     #login-form-img {
-                        width: 300px;
-                        height: 200px;
+                        width: 350px;
+                        height: 250px;
                     }
                 }
 
                 #input-wrapper
                 {
                     position: relative;
-                    width: 55%;
+                    width: 45%;
                     height: 100%;
                     text-align: center;
                     
@@ -50,7 +52,7 @@
 
                     form {
                         min-width: 100px;
-                        max-width: 350px;
+                        max-width: 250px;
                         width: 100%;
                         text-align: left;
                     
@@ -65,7 +67,7 @@
                         .forgot-password {
                             margin: 8px 0 16px 0;
                             text-align: right;
-                            font-weight: 600;   
+                            font-weight: 600;
                         }
 
                         .submit-btn {

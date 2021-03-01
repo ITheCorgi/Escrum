@@ -34,9 +34,9 @@ export class LoginPageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
     ) {
-      /*if(this.authService.userValue) {
+        if(this.authService.userValue) {
         this.router.navigate(['/']);
-      }*/
+      }
       
       this.hide = true;
       this.loading = false;
@@ -58,12 +58,16 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login(this.loginForm.value)
+    this.authService.login({
+      email:    this.loginForm.controls.email.value,
+      password: this.loginForm.controls.password.value
+    })
         .pipe(first())
         .subscribe({
             next: () => {
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigateByUrl(returnUrl);
+              // get return url from query parameters or default to home page
+              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+              this.router.navigateByUrl(returnUrl);
             },
             error: () => {
                 this.loading = false;

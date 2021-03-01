@@ -16,7 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from '../../@core/interceptors/jwt.interceptor';
 
-import { FakeService } from '../../@core/services/fake.service';
+import { fakeProvider } from '../../@core/services/fake.service';
 
 const routes: Routes = [
   { path: '',
@@ -47,7 +47,7 @@ const routes: Routes = [
   declarations: [ AuthComponent, LoginPageComponent, ForgotPasswordComponent, RegisterComponent ],
   providers: [ 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    FakeService ],
+    fakeProvider ],
   exports: [ RouterModule ]
 })
 export class AuthModule { }

@@ -12,7 +12,7 @@ const users = [
 ]
 
 @Injectable()
-export class FakeService implements HttpInterceptor {
+export class FakeServiceInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
@@ -116,8 +116,8 @@ export class FakeService implements HttpInterceptor {
     }
 }
 
-export const fakeBackendProvider = {
+export const fakeProvider = {
     provide: HTTP_INTERCEPTORS,
-    useClass: FakeService,
+    useClass: FakeServiceInterceptor,
     multi: true
 };
