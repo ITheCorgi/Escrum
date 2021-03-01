@@ -1,1 +1,41 @@
-<p>register works!</p>
+<section id='signup' fxFlex fxLayout='row' fxLayoutAlign='center center'>
+    <div id='signup-form'>
+        <div id='container' fxFlex fxLayout='column'>
+            <div id='welcome-wrapper' fxLayout='column' fxLayoutAlign='start center'>
+                Create your account
+            </div>
+
+            <div id='input-wrapper' fxLayout='column' fxLayoutAlign='start center'>
+                <form [formGroup]='signupForm' novalidate>
+                    <mat-form-field appearance='outline' fxLayout='row' fxLayoutAlign='center'>
+                        <mat-label>Email</mat-label>
+                        <input matInput  type='email' id='email' formControlName='email' [ngClass]='{ "is-invalid": submitted }'/>
+                        <mat-icon matSuffix class="secondary-text">email</mat-icon>
+                        <mat-error *ngIf="email?.errors?.required">Email is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance='outline' fxLayout='row' fxLayoutAlign='center'>
+                        <mat-label>Full Name</mat-label>
+                        <input matInput type='text' id='name' formControlName='name' [ngClass]='{ "is-invalid": submitted }'/>
+                        <mat-icon matSuffix class='secondary-text'>perm_identity</mat-icon>
+                        <mat-error *ngIf='name?.errors?.required'>Name is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance='outline' fxLayout='row' fxLayoutAlign='center'>
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" id="password" [ngClass]="{ 'is-invalid': submitted }" formControlName="password"/>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf='password?.errors?.required'>Password is required</mat-error>
+                        <mat-error *ngIf='password?.errors?.minlength'>Password must be at least 6 characters</mat-error>
+                    </mat-form-field>
+
+                    <button mat-raised-button class="submit-btn" [disabled]="signupForm.invalid">
+                        SIGN UP
+                    </button>
+                </form>
+            </div> 
+        </div>
+    </div>
+</section>
