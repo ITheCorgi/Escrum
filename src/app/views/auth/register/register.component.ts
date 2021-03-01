@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 import { AuthService } from '../../../@core/services/auth.service'
 
@@ -15,20 +16,33 @@ export class RegisterComponent implements OnInit {
   private _submitted!: boolean;
 
   constructor(
-    private _formBuilder: FormBuilder,
-    private _router: Router,
-    private _route: ActivatedRoute,
-    private _authService: AuthService
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { 
     //this._submitted = false;
   }
 
   ngOnInit(): void {
-    this.signupForm = this._formBuilder.group({
+    this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if(this.signupForm.invalid) { return; }
+    this.authService.signup(this.signupForm.value)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          this.router.navigate(['']);
+        }
+      });
   }
 
   public get submitted() {
