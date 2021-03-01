@@ -32,7 +32,7 @@ export class AuthService {
       this.user$ = this.userSubject.asObservable();
     }
 
-  /*Login
+  /*Sign In
   * @param email: string
   * @param password: string
   * @output user$: Observable<User>
@@ -49,6 +49,13 @@ export class AuthService {
       })
     );
   }
+
+  /*Sign Up
+  * @param userdata: IUser
+  */
+ public signup(userData: IUser): Observable<IUser> {
+  return this.http.post<IUser>(`${API_URL}/users/signup`, userData);
+}
 
   /*Logout
   * @output userSubject: BehaviorSubject<User>(null)
