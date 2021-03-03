@@ -58,10 +58,7 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login({
-      email:    this.loginForm.controls.email.value,
-      password: this.loginForm.controls.password.value
-    })
+    this.authService.login(this.loginForm.value)
         .pipe(first())
         .subscribe({
             next: () => {
