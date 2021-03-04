@@ -9,7 +9,7 @@
                 <div class="title">LOGIN TO YOUR ACCOUNT</div>
                 <div class='subtitle' fxLayout='row' fxLayoutAlign='start start'>
                     <span>Don`t have an account?</span>
-                    <a class='signup-link' [routerLink]='"/views/auth/register"'>Sign up</a>
+                    <a class='signup-link' [routerLink]='"/auth/register"'>Sign up</a>
                 </div>
                 <div fxLayout='column' fxLayoutAlign='space-evenly center'>
                     <form [formGroup]='loginForm' (ngSubmit)='onSubmit()' novalidate>
@@ -35,7 +35,7 @@
                         </mat-form-field>
                         
                         <div fxLayout='row' fxLayoutAlign='end'>
-                            <a class='forgot-password' [routerLink]='"/views/auth/forgot-password"'>
+                            <a class='forgot-password' [routerLink]='"/auth/forgot-password"'>
                                 Forgot Password?
                             </a>
                         </div>
