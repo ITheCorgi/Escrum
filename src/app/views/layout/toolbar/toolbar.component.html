@@ -1,7 +1,11 @@
-<mat-toolbar class='toolbar' fxLayout='row'>
-    <div class='toolbar-wrapper' fxLayoutAlign='end center'>
-        <div>
+<mat-toolbar class='toolbar'>
+    <div class='toolbar-wrapper' fxFlex fxFill fxLayout='row' fxLayoutAlign='end center'>
+        <div fxFlex='0 1 auto' fxLayout='row' fxLayoutAlign='start center'>
+            <button mat-icon-button matBadge='5' matBadgeOverlap='true' matBadgePosition='after' matBadgeSize='small'>
+                <fa-icon [icon]='faBell' size='2x'></fa-icon>
+            </button>
 
+            
         </div>
     </div>    
 </mat-toolbar>

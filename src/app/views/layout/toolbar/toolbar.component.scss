@@ -10,10 +10,11 @@
     width: 100vw;
     height: 60px;
     z-index: 4;
-    @include card-shadow();
+    //background-color: #f6f6f9;;
+    //@include card-shadow();
 
     .toolbar-wrapper {
-        position: relative;
+        //position: relative;
         padding-right: 20px;
     }
 }

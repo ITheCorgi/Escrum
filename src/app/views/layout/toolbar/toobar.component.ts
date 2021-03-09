@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faBell } from '@fortawesome/free-regular-svg-icons/faBell';
 
 @Component({
     selector: 'escrum-toolbar',    
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-
+    faBell = faBell;
     constructor() {}
 }
