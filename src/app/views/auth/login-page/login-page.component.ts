@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faMicrosoft, faGithub, faGoogle, faFacebook, faVk } from '@fortawesome/free-brands-svg-icons';
 import { Router, ActivatedRoute } from '@angular/router'
 import { first } from 'rxjs/operators';
